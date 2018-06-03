@@ -1,0 +1,60 @@
+.sidebar {
+	min-width: 270px;
+	padding: 10px 0;
+	color: $color-gray-1;
+	font-weight: 400;
+	background-color: $color-green-1;
+
+	.list {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		.item {
+			cursor: pointer;
+		}
+		.text {
+			display: inline-block;
+			opacity: 0.8;
+		}
+	}
+
+	.root {
+		> .item {
+			> .text {
+				display: flex;
+				align-items: center;
+				padding: 8px 20px 3px 25px;
+
+				&::after {
+					content: '';
+					width: 0;
+		  			height: 0;
+		  			margin-left: 8px;
+		  			color: $color-gray-1;
+					border-left: 4px solid transparent;
+					border-right: 4px solid transparent;
+					border-top: 5px solid $color-gray-1;
+				}
+			}
+		}
+	}
+
+	.sub {
+		position: relative;
+		> .item {
+			> .text {
+				position: relative;
+				display: flex;
+				align-items: center;
+				padding: 5px 20px 5px 45px;
+			}
+			&:hover {
+				background-color: $color-green-2;
+				transition: all 0.2s ease-in;
+				> .text {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,43 @@
+.dropdown {
+	&.expand {
+		.dropdown-content {
+			visibility: visible;
+			opacity: 1;
+			transition: all 0.2s ease-in;
+		}
+	}
+
+	.dropdown-toggler {
+		display: flex;
+		align-items: center;
+		padding: 8px;
+		cursor: pointer;
+		&::after {
+			content: '';
+			width: 0;
+  			height: 0;
+  			margin-left: 8px;
+			border-left: 4px solid transparent;
+			border-right: 4px solid transparent;
+			border-top: 5px solid $color-gray-2;
+		}
+	}
+
+	.dropdown-content {
+		position: absolute;
+		background-color: $color-white-1;
+		box-shadow: 0 0 5px 1px $color-translucent-gray;
+		visibility: hidden;
+		opacity: 0;
+		z-index: 1;
+
+	}
+
+	&.expand .dropdown-toggler,
+	.dropdown-toggler:hover {
+		color: $color-green-1;
+		&::after {
+			border-top: 5px solid $color-green-1;
+		}
+	}
+}

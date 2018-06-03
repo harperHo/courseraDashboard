@@ -1,0 +1,8 @@
+export default {
+	LOAD: 'course/LOAD',
+	LOAD_SUCCESS: 'course/LOAD_SUCCESS',
+	LOAD_FAIL: 'course/LOAD_FAIL',
+  LOAD_TABLES: 'course/LOAD_TABLES',
+  LOAD_TABLES_SUCCESS: 'course/LOAD_TABLES_SUCCESS',
+  LOAD_TABLES_FAIL: 'course/LOAD_TABLES_FAIL',
+}
