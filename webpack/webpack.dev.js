@@ -1,16 +1,21 @@
 const path = require('path');
+const paths = require('./paths');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	devtool: 'eval-source-map',
-	entry: './src/index.js',
+	devtool: 'cheap-module-source-map',
+	entry: paths.appIndexJs,
 	output: {
-		filename: 'bundle.js',
-		path: path.resolve(__dirname, '../build')
+		filename: 'static/js/bundle.js',
+		chunkFilename: 'static/js/[name].chunk.js',
+		path: paths.appBuild,
+		pathinfo: true,
 	},
 	module: {
 		rules: [
 			{
 				test: /\.js$/,
+				include: paths.appSrc,
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',
@@ -23,7 +28,10 @@ module.exports = {
 		        loader: 'style-loader'
 		      },
 		      {
-		        loader: 'css-loader'
+						loader: 'css-loader',
+						options: {
+							minimize: true,
+						}
 		      },
 		      {
 		        loader: 'postcss-loader',
@@ -56,9 +64,16 @@ module.exports = {
 			}
 		]
 	},
+	plugins: [
+		new HtmlWebpackPlugin({
+      inject: true,
+      template: paths.appHtml,
+    }),
+	],
 	devServer: {
 		port: 8080,
 		open: true,
+		overlay: false,
 		contentBase: path.resolve(__dirname, '../')
 	},
 }
