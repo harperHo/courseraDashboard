@@ -10,6 +10,7 @@ module.exports = {
 		chunkFilename: 'static/js/[name].chunk.js',
 		path: paths.appBuild,
 		pathinfo: true,
+		publicPath: paths.publicPath,
 	},
 	module: {
 		rules: [
