@@ -49,8 +49,10 @@
   },
   "scripts": {
     "start": "node ./scripts/start.js",
+    "start:debug": "node --inspect-brk ./scripts/start.js",
     "start-mock-api-dev": "node ./mockApi/mockApi.js",
     "dev": "concurrently --kill-others \"yarn start-mock-api-dev\" \"yarn start\"",
+    "start-mock-api-dev:debug": "node --inspect-brk ./mockApi/mockApi.js",
     "prod": "webpack ./webpack/webpack.prod.js"
   }
 }
