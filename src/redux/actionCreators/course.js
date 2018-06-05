@@ -1,11 +1,12 @@
 import { course as cons } from '../constants';
+import Config from 'Config'
 
 export function getCourses() {
   return (dispatch) => {
     dispatch({
       type: cons.LOAD
     });
-    fetch('http://localhost:3000/course/courses')
+    fetch(`${Config.apiServer}${Config.course}/courses`)
       .then(response => {
         const status = response.status;
 
@@ -33,7 +34,7 @@ export function getTables(id) {
     dispatch({
       type: cons.LOAD_TABLES
     });
-    fetch(`http://localhost:3000/course/${id}`)
+    fetch(`${Config.apiServer}${Config.course}/${id}`)
       .then(response => {
         const status = response.status;
 

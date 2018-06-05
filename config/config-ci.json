@@ -1,14 +1,4 @@
 {
-  "apiServer": "http://10.10.30.64:8080",
-  "socketServer": "ws://10.10.30.64:8080/sle-portal/ws",
-  "baseURL": "/sle-portal",
-  "tokensURL": "/tokens",
-  "playratesURL": "/playRates",
-  "drawHistoryURL": "/draw/latestresults",
-  "lobbyURL": "/lobby",
-  "todayResultURL": "/txns/aggregated",
-  "playerBalanceURL": "/players/balance",
-  "transactionURL": "/txns",
-  "portalFront": "http://10.1.40.129:3000",
-  "staticURL": "."
+  "apiServer": "http://localhost:3000",
+  "course": "/course"
 }
