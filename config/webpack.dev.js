@@ -35,11 +35,27 @@ module.exports = {
 						}
 		      },
 		      {
-		        loader: 'postcss-loader',
+						loader: 'postcss-loader',
+						ident: 'postcss',
 		        options: {
-		        	config: {
-		        		path: './webpack/postcss.config.js'
-		        	}
+							plugins: function () {
+								return [
+									require('postcss-import')({}),
+									require('postcss-cssnext')({
+										browsers: ['last 2 versions', '> 5%'],
+									}),
+									require('precss')({}),
+									require('autoprefixer')({
+										browsers: [
+											'>1%',
+											'last 4 versions',
+											'Firefox ESR',
+											'not ie < 9', // React doesn't support IE8 anyway
+										]
+									}),
+									require('postcss-mixins')({}),
+								]
+							}
 		        }
 					},
 					'sass-loader'
