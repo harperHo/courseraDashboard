@@ -31,9 +31,10 @@ export function getCourses() {
 export function getTables(id) {
   return (dispatch) => {
     dispatch({
-      type: cons.LOAD_TABLES
+      type: cons.LOAD_TABLES,
+      courseId: id,
     });
-    fetch(`http://localhost:3000/course/${id}`)
+    fetch(`http://localhost:3000/course/${id}/tables`)
       .then(response => {
         const status = response.status;
 
@@ -55,32 +56,3 @@ export function getTables(id) {
       });
   };
 }
-
-// export function addTask(data) {
-//   return (dispatch) => {
-//     dispatch({
-//       type: cons.ADD
-//     });
-//     fetch('http://localhost:3000/task', {
-//       method: 'post',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify(data)
-//     }).then(response => {
-//         const status = response.status;
-
-//         if (status !== 200) throw status;
-
-//         dispatch({
-//           type: cons.ADD_SUCCESS
-//         });
-//       })
-//       .catch(err => {
-//         dispatch({
-//           type: cons.ADD_FAIL,
-//           error: err
-//         });
-//       });
-//   };
-// }

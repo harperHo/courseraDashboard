@@ -42,16 +42,7 @@ export default class Header extends PureComponent {
     return getTables(id);
   }
 
-
 	render() {
-
-		// return (
-		// 	<div className="header">
-  //       <NavLink exact to="/" className="link" activeClassName="active">TODO LIST</NavLink>
-  //       <NavLink exact to="/new_task" className="link" activeClassName="active">NEW TASK</NavLink>
-		// 	</div>
-		// );
-
     return (
       <div className="header">
         <div className="title">COURSERA DASHBOARD</div>

@@ -1,17 +1,9 @@
 .header {
-	height: 60px;
+	height: 80px;
 	display: flex;
 	align-items: center;
-	background-color: $color-white-1;
+	background: linear-gradient(to right, $color-purple-1 , $color-purple-2);
 
-	/* .link {
-		text-decoration: none;
-		&:hover,
-		&.active {
-			color: $color-green-2;
-		}
-	}
- */
 	.title {
 		display: flex;
 		align-items: center;
@@ -19,9 +11,7 @@
 		width: 270px;
 		height: 100%;
 		font-size: 18px;
-		font-weight: 400;
 		color: $color-gray-1;
-		background-color: $color-gray-3;
 	}
 
 	.list {
@@ -31,9 +21,10 @@
 		list-style-type: none;
 		.item {
 			padding: 8px 10px;
-			cursor: pointer;
+
 			&:hover {
-				background-color: $color-gray-1;
+				/* background-color: $color-gray-1; */
+				background-color: $color-gray-2;
 				transition: all 0.2s linear;
 			}
 		}

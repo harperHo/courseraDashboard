@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Map, is } from 'immutable';
+import { List, is } from 'immutable';
 
-import { Sidebar } from '../../components';
+
+import { getTables } from '../../redux/actionCreators/course';
+import { Sidebar, Dashboard } from '../../components';
 
 @connect(
  state => ({
    loadTables: state.course.get('loadTables'),
    loadTablesSuc: state.course.get('loadTablesSuc'),
    loadTablesErr: state.course.get('loadTablesErr'),
-   tables: state.course.get('tables')
+   tables: state.course.get('tables'),
+   course: state.course.get('course'),
  })
 )
 export default class Home extends Component {
@@ -18,7 +21,7 @@ export default class Home extends Component {
 		super(props);
 
     this.state = {
-      courses: Map(),
+      tables: List(),
     };
 	}
 
@@ -40,11 +43,21 @@ export default class Home extends Component {
   }
 
 	render() {
+    const { course } = this.props;
 		const { tables } = this.state;
 
+    const hasContent = tables && tables.size > 0;
+    const courseName = course ? course.get('name') : '';
+    const college = course ? course.get('college') : '';
+
     return (
-      <div className="dashboard">
+      <div className={`home ${hasContent ? '' : 'no-content'}`}>
+        {
+          !hasContent &&
+            <span className="text">請選擇一個課程</span>
+        }
         <Sidebar tables={tables}/>
+        <Dashboard courseName={courseName} college={college} />
       </div>
     );
 	}

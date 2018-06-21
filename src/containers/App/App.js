@@ -1,10 +1,14 @@
 import React, { Component, createContext, createRef } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { Map, is } from 'immutable';
 
 import { getCourses, getTables } from '../../redux/actionCreators/course';
 import { Header } from '../../components';
 
+// React Router 4 (beta 8) won't render components if using redux connect:
+// https://github.com/ReactTraining/react-router/issues/4671
+@withRouter
 @connect(
  state => ({
    load: state.course.get('load'),
@@ -16,8 +20,8 @@ import { Header } from '../../components';
  //  getTasks: () => dispatch(getTasks())
  // })
  {
-   getCourses,
-   getTables,
+    getTables,
+    getCourses,
  }
 )
 export default class App extends Component {
@@ -52,12 +56,11 @@ export default class App extends Component {
   }
 
 	render() {
-    const { getTables } = this.props;
     const { courses } = this.state;
 
 		return (
 			<div className="container">
-				<Header courses={courses} getTables={getTables} />
+				<Header courses={courses} getTables={this.props.getTables} />
 				{this.props.children}
 			</div>
 		);
