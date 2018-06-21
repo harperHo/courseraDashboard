@@ -1,5 +1,5 @@
 import { course as cons } from '../constants';
-import { fromJS, List } from 'immutable';
+import { fromJS, List, Map } from 'immutable';
 
 const initialState = fromJS({
 	load: false,
@@ -10,6 +10,8 @@ const initialState = fromJS({
   loadTablesErr: false,
 	courses: List(),
   tables: List(),
+  course: Map(),
+  table: '',
 });
 
 export default function course(state = initialState, action = {}) {
@@ -35,12 +37,17 @@ export default function course(state = initialState, action = {}) {
 	      loadSuc: false,
 	      loadErr: action.error,
 	  	});
-    case cons.LOAD_TABLES:
+    case cons.LOAD_TABLES: {
+      const courseId = parseInt(action.courseId);
+      const course = state.get('courses').find(el => el.get('id') === courseId);
+
       return state.merge({
         loadTables: true,
         loadTablesSuc: false,
         loadTablesErr: false,
+        course: course,
       });
+    }
     case cons.LOAD_TABLES_SUCCESS: {
       return state.merge({
         loadTables: false,

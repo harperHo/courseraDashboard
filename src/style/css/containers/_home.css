@@ -1,0 +1,39 @@
+.home {
+	position: relative;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	> .text {
+		position: absolute;
+		font-size: 16px;
+
+	}
+
+	.sidebar,
+	.dashboard {
+		height: 100%;
+		transition: transform 0.5s;
+	}
+
+	.sidebar {
+		width: 270px;
+		padding: 10px 0;
+		color: $color-gray-4;
+		background-color: $color-white-1;
+		box-shadow: 0 3px 5px 1px $color-gray-1;
+	}
+
+	.dashboard {
+		flex: 1;
+		padding: 30px;
+	}
+
+	&.no-content {
+		.sidebar,
+		.dashboard {
+			transform: translate(-270px);
+		}
+	}
+}

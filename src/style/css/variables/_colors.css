@@ -1,10 +1,7 @@
-$color-gray-1: #F3F3F5;
-$color-gray-2: #8F8F8F;
+$color-gray-1: #F6F6F8;
+$color-gray-2: #F1F1F4;
 $color-gray-3: #4F4F4F;
-
-$color-green-1: #5CA991;
-$color-green-2: #3B7C68;
-$color-green-3: #9ac7ba;
+$color-gray-4: #272727;
 
 $color-white-1: #FFF;
 
@@ -12,3 +9,9 @@ $color-white-1: #FFF;
 
 $color-translucent-white: rgba(255, 255, 255, 0.2);
 $color-translucent-gray: rgba(77, 77, 77, 0.2);
+
+$color-purple-1: #434E86;
+$color-purple-2: #985FBE;
+$color-purple-3: #D9D7ED;
+
+$color-pink-1: #E47D96;

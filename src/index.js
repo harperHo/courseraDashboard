@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
 import reducer from './redux/reducers/reducer';
-import { App, Dashboard} from './containers';
+import { App, Home} from './containers';
 
 import './style/css/main.css';
 
@@ -21,7 +21,7 @@ render(
 	<Provider store={store}>
 		<HashRouter>
 			<App>
-				<Route exact path="/" component={Dashboard} />
+				<Route exact path="/" component={Home} />
 			</App>
 		</HashRouter>
 	</Provider>,

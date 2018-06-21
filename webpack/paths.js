@@ -35,6 +35,5 @@ module.exports = {
   testsSetup: resolveApp('src/setupTests.js'),
   appNodeModules: resolveApp('node_modules'),
   ownNodeModules: resolveApp('node_modules'),
-  nodePaths: nodePaths,
-  publicPath: resolveApp('/'),
+  nodePaths: nodePaths
 };

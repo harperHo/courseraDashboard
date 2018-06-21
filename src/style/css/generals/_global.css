@@ -13,10 +13,14 @@ input, button {
 	font-weight: 300;
 }
 
+* {
+	box-sizing: border-box;
+}
+
 #app {
 	height: 100%;
 	font-size: 14px;
-	color: $color-gray-2;
+	color: $color-gray-4;
 }
 
 .container {
@@ -25,3 +29,9 @@ input, button {
 	height: 100%;
 
 }
+
+/* .link {
+	color: $color-gray-4;
+	text-decoration: none;
+}
+ */

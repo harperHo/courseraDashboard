@@ -1,8 +1,5 @@
-var argv = process.argv.slice(2)
-process.env.CONFIG = argv[0] || 'ci'
 const path = require('path');
 const paths = require('./paths');
-const configFile = require(`./config-${process.env.CONFIG}.json`)
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -13,9 +10,7 @@ module.exports = {
 		chunkFilename: 'static/js/[name].chunk.js',
 		path: paths.appBuild,
 		pathinfo: true,
-		publicPath: paths.publicPath,
 	},
-	mode: 'development',
 	module: {
 		rules: [
 			{
@@ -35,31 +30,18 @@ module.exports = {
 		      {
 						loader: 'css-loader',
 						options: {
-							importLoaders: 1,
 							minimize: true,
 						}
 		      },
 		      {
-						loader: 'postcss-loader',
-						ident: 'postcss',
+		        loader: 'postcss-loader',
 		        options: {
-							plugins: function () {
-								return [
-									require('postcss-import')({}),
-									require('postcss-cssnext')({
-										browsers: [
-											'>1%',
-											'last 4 versions',
-											'Firefox ESR',
-											'not ie < 9', // React doesn't support IE8 anyway
-										],
-									}),
-									require('precss')({}),
-									require('postcss-mixins')({}),
-								]
-							}
+		        	config: {
+		        		path: './webpack/postcss.config.js'
+		        	}
 		        }
 					},
+					'sass-loader'
 		    ]
 		  },
 		  {
@@ -88,13 +70,10 @@ module.exports = {
       template: paths.appHtml,
     }),
 	],
-	externals: {
-    'Config': JSON.stringify(configFile),
-  },
 	devServer: {
 		port: 8080,
 		open: true,
-		overlay: true,
+		overlay: false,
 		contentBase: path.resolve(__dirname, '../')
 	},
 }

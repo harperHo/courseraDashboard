@@ -10,6 +10,7 @@ export default class SidebarList extends PureComponent {
     }
 
     this.handleToggler = this.handleToggler.bind(this);
+    this.getTable = this.getTable.bind(this);
   }
 
   handleToggler() {
@@ -20,12 +21,22 @@ export default class SidebarList extends PureComponent {
     });
   }
 
+  getTable(e) {
+    // const { getTable } = this.props;
+    const id = e.currentTarget.getAttribute('data-id');
+
+    console.log('tableId: ' + id);
+
+    // return getTable(id);
+  }
+
   renderItems(items) {
     const result = [];
 
     items.forEach(item => {
+      const id = item.get('id');
       result.push(
-        <li key={item.get('id')} className="item">
+        <li key={id} className="item" data-id={id} onClick={this.getTable}>
           <span className="text">{item.get('name')}</span>
         </li>
       );

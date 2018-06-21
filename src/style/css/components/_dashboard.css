@@ -1,0 +1,19 @@
+.dashboard {
+
+
+	.path {
+		display: flex;
+		flex-direction: column;
+		.college {
+
+		}
+
+		.course-name {
+			margin-top: 5px;
+			font-size: 20px;
+			font-weight: 400;
+		}
+	}
+}
+
+
