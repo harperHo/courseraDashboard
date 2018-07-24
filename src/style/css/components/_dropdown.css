@@ -32,7 +32,7 @@
 		visibility: hidden;
 		opacity: 0;
 		z-index: 1;
-
+		cursor: pointer;
 	}
 
 	&.expand .dropdown-toggler,

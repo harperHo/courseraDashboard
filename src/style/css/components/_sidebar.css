@@ -1,4 +1,17 @@
 .sidebar {
+	&.expand {
+		.root {
+			> .item {
+				> .text {
+					/*visibility: visible;
+					opacity: 1;
+					transition: all 0.2s ease-in;*/
+					display: block;
+				}
+			}
+		}
+	}
+
 	.list {
 		margin: 0;
 		padding: 0;
@@ -20,6 +33,15 @@
 				padding: 10px 20px 7px 25px;
 				font-size: 12px;
 				font-weight: 500;
+				&::after {
+					content: '';
+					width: 0;
+		  			height: 0;
+		  			margin-left: 8px;
+					border-left: 4px solid transparent;
+					border-right: 4px solid transparent;
+					border-top: 5px solid color black;
+				}	
 			}
 		}
 	}
@@ -29,13 +51,29 @@
 		> .item {
 			> .text {
 				position: relative;
-				display: flex;
+				display: none;
 				align-items: center;
 				padding: 7px 20px 7px 45px;
+				/*visibility: hidden;
+				opacity: 0;	
+				z-index: 1;*/
 			}
 			&:hover > .text {
 				background-color: $color-gray-2;
 				transition: all 0.2s linear;
+			}
+		}
+	}
+	
+	&.expand .root,
+	.root {
+		> .item {
+			> .text:hover {
+				/*background-color: blue;*/
+				color: red;
+				&::after {
+					border-top: 5px solid color red;
+				}
 			}
 		}
 	}
